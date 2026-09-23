@@ -1,4 +1,8 @@
-D:\PBO\SistemPemesananTiketPesawat\src\main\java\com\mycompany\sistempemesanantiketpesawat\Penerbangan.java
-D:\PBO\SistemPemesananTiketPesawat\src\main\java\com\mycompany\sistempemesanantiketpesawat\Penumpang.java
-D:\PBO\SistemPemesananTiketPesawat\src\main\java\com\mycompany\sistempemesanantiketpesawat\SistemPemesananTiketPesawat.java
-D:\PBO\SistemPemesananTiketPesawat\src\main\java\com\mycompany\sistempemesanantiketpesawat\Tiket.java
+D:\PBO\SistemPemesananTiketPesawat\src\main\java\controller\Controller.java
+D:\PBO\SistemPemesananTiketPesawat\src\main\java\main\SistemPemesananTiketPesawat.java
+D:\PBO\SistemPemesananTiketPesawat\src\main\java\model\Penerbangan.java
+D:\PBO\SistemPemesananTiketPesawat\src\main\java\model\Penumpang.java
+D:\PBO\SistemPemesananTiketPesawat\src\main\java\model\Tiket.java
+D:\PBO\SistemPemesananTiketPesawat\src\main\java\model\Tiketbisnis.java
+D:\PBO\SistemPemesananTiketPesawat\src\main\java\model\Tiketekonomi.java
+D:\PBO\SistemPemesananTiketPesawat\src\main\java\view\View.java

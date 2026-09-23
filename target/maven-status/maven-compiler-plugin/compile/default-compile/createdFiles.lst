@@ -1,4 +1,8 @@
-com\mycompany\sistempemesanantiketpesawat\Tiket.class
-com\mycompany\sistempemesanantiketpesawat\Penumpang.class
-com\mycompany\sistempemesanantiketpesawat\Penerbangan.class
-com\mycompany\sistempemesanantiketpesawat\SistemPemesananTiketPesawat.class
+main\SistemPemesananTiketPesawat.class
+model\Tiketbisnis.class
+model\Tiketekonomi.class
+controller\Controller.class
+model\Tiket.class
+model\Penumpang.class
+view\View.class
+model\Penerbangan.class
