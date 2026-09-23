@@ -56,7 +56,6 @@ public class Tiket {
         System.out.println("Status Tiket     : " + statusTiket);
     }
 
-    // OVERLOADING - versi ringkas satu baris, dipakai buat nampilin daftar singkat
     public void tampilkanInfo(boolean ringkas) {
         if (ringkas) {
             System.out.println(idTiket + " - " + penumpang.getNama() + " (" + getNamaKelas() + ") - " + statusTiket);

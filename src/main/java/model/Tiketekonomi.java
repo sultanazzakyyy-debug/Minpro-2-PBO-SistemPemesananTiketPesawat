@@ -1,7 +1,6 @@
 package model;
 
 public class Tiketekonomi extends Tiket {
-
     private int bagasiKg;
 
     public Tiketekonomi(String idTiket, Penumpang penumpang, Penerbangan penerbangan) {
@@ -9,7 +8,6 @@ public class Tiketekonomi extends Tiket {
         this.bagasiKg = 20;
     }
 
-    @Override
     public String getNamaKelas() {
         return "Ekonomi";
     }

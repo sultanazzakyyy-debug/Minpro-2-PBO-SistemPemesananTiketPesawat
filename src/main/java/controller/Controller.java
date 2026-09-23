@@ -17,7 +17,6 @@ public class Controller {
         daftarTiket = new ArrayList<>();
     }
 
-    // DUMMY DATA AWAL - supaya menu Lihat langsung ada isinya
     public void isiDataAwal() {
         Penerbangan penerbanganAwal = new Penerbangan("GA401", "Balikpapan", "Jakarta", "08.00", 1500000, 10);
         daftarPenerbangan.add(penerbanganAwal);

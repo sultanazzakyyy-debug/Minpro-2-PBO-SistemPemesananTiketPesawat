@@ -19,12 +19,10 @@ public class View {
         System.out.print("Pilih menu: ");
     }
 
-    // OVERLOADING - method 1: pesan polos
     public void tampilkanPesan(String pesan) {
         System.out.println(pesan);
     }
 
-    // OVERLOADING - method 2: pesan dengan label
     public void tampilkanPesan(String label, String pesan) {
         System.out.println("[" + label + "] " + pesan);
     }
@@ -65,7 +63,6 @@ public class View {
         }
     }
 
-    // manggil overload versi ringkas - dipakai sebelum user input ID tiket
     public void tampilkanDaftarTiketRingkas(ArrayList<Tiket> daftar) {
         if (daftar.size() == 0) {
             tampilkanPesan("Belum ada data tiket.");
