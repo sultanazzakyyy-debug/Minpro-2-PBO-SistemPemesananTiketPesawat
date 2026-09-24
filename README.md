@@ -18,29 +18,57 @@ Program menyediakan fitur tambah data penerbangan, lihat jadwal penerbangan, pes
 
 Program dimulai dari `SistemPemesananTiketPesawat.java` (package `main`), yang membuat objek `Controller` dan `View`. Setelah itu `Controller` memanggil `isiDataAwal()` untuk menyiapkan `ArrayList` dan mengisi satu data dummy (satu penerbangan dan satu tiket) sebagai data awal. Program lalu menampilkan menu utama dengan 7 pilihan: tambah penerbangan, lihat jadwal, pesan tiket, lihat semua tiket, update status, batalkan tiket, dan keluar.
 
-1. **Tambah Data Penerbangan**
-   Pengguna memasukkan kode penerbangan, kota asal, kota tujuan, jam keberangkatan, harga dasar, dan jumlah kursi. Setiap input divalidasi sebelum data dikirim ke `Controller` dan dimasukkan ke `ArrayList<Penerbangan>`.
+1. Menu Awal
 
-2. **Lihat Jadwal Penerbangan**
-   Program mengambil seluruh isi `ArrayList<Penerbangan>` dan menampilkannya lewat `View`.
+   <img width="204" height="111" alt="Menu awal" src="https://github.com/user-attachments/assets/ef6f94bd-6c9f-49cb-8d5d-4207a6678872" />
 
-3. **Pesan Tiket**
-   Pengguna memilih nomor penerbangan dari daftar yang ditampilkan. Program mengecek dulu apakah kursi penerbangan itu masih tersedia. Jika masih ada, pengguna mengisi ID tiket dan data penumpang, lalu memilih kelas kursi (Ekonomi/Bisnis). Berdasarkan pilihan itu, `Controller` membuat objek `Tiketekonomi` atau `Tiketbisnis`, memasukkannya ke `ArrayList<Tiket>`, dan mengurangi kursi penerbangan terkait.
+   Begitu program dijalankan, menu utama tampil dengan 7 pilihan. User tinggal mengetik angka di baris Pilih menu: untuk masuk ke fitur yang diinginkan. Data dummy dari isiDataAwal() sudah tersedia di belakang layar sejak awal, meski baru kelihatan setelah user membuka menu 2 atau 4.
 
-4. **Lihat Semua Tiket**
-   Program menampilkan detail seluruh tiket yang ada di `ArrayList<Tiket>`, termasuk penumpang, penerbangan, kelas, dan total harganya.
+2. **Tambah Data Penerbangan**
 
-5. **Update Status Tiket**
-   Pengguna memasukkan ID tiket yang ingin diubah. Program mencari data berdasarkan ID tersebut. Jika ditemukan, pengguna memasukkan status baru dan status tiket diperbarui.
+   <img width="198" height="111" alt="Menu 1" src="https://github.com/user-attachments/assets/0ac956b1-3bb1-4ed0-93f4-fce66752a79c" />
+   
+   User memasukkan kode penerbangan, kota asal, kota tujuan, jam keberangkatan, harga dasar, dan jumlah kursi. Setiap input divalidasi (kode nggak boleh kosong, harga & kursi harus lebih dari 0) sebelum data dikirim ke      Controller.tambahPenerbangan() dan dimasukkan ke ArrayList<Penerbangan>. Setelah berhasil, muncul pesan "Data penerbangan berhasil ditambahkan!".
 
-6. **Batalkan Tiket**
-   Pengguna memasukkan ID tiket yang ingin dibatalkan. Program mencari data berdasarkan ID tersebut. Jika ditemukan, tiket dihapus dari `ArrayList<Tiket>` dan kursi penerbangan terkait dikembalikan.
+3. **Lihat Jadwal Penerbangan**
 
-7. **Keluar**
-   Jika pengguna memilih menu keluar, perulangan menu dihentikan dan program selesai dijalankan.
+   <img width="207" height="190" alt="Menu 2" src="https://github.com/user-attachments/assets/4e69b9df-c189-4a0b-8cc8-d2399c0ab5aa" />
 
-Selama proses input, program melakukan validasi untuk memastikan data yang dimasukkan sesuai ketentuan. Jika input tidak sesuai, pengguna diminta memasukkan kembali data tersebut.
+   Program mengambil seluruh isi ArrayList<Penerbangan> dan menampilkannya lewat View, lengkap dengan kode, rute, jam, harga dasar, dan sisa kursi tiap penerbangan termasuk data yang baru saja ditambahkan di menu 1.
 
+4. **Pesan Tiket**
+  
+   <img width="358" height="206" alt="Menu 3 bisnis" src="https://github.com/user-attachments/assets/10c80694-0442-4f72-81f4-1b8cb4fd7fbf" />
+   <img width="350" height="207" alt="Menu 3 ekonomi" src="https://github.com/user-attachments/assets/985e9997-197e-4297-85ed-5de30f83c6a1" />
+
+   User memilih nomor penerbangan dari daftar ringkas yang ditampilkan. Program mengecek dulu apakah kursi penerbangan itu masih tersedia kalau sudah habis, program menolak dan tidak lanjut ke input tiket. Jika masih ada, user mengisi ID tiket dan data penumpang, lalu memilih kelas kursi (1 = Ekonomi, 2 = Bisnis). Berdasarkan pilihan itu, Controller.pesanTiket() membuat objek Tiketekonomi atau Tiketbisnis, memasukkannya ke ArrayList<Tiket>, dan mengurangi kursi penerbangan terkait lewat kurangiKursi(). Total harga tiket bisnis otomatis lebih besar (dikali 1.5) dibanding tiket ekonomi.
+
+5. **Lihat Semua Tiket**
+   
+   <img width="960" height="540" alt="Menu 4" src="https://github.com/user-attachments/assets/e48a7f13-35bc-4ce8-b46c-8d36d0a436ad" />
+
+   Program menampilkan detail seluruh tiket yang ada di ArrayList<Tiket>, termasuk data penumpang, data penerbangan, kelas kursi, total harga, dan status tiket. Tiket ekonomi dan bisnis tampil dengan label kategori serta info bagasi yang berbeda.
+
+6. **Update Status Tiket**
+   
+   <img width="259" height="107" alt="Menu 5 Lunas" src="https://github.com/user-attachments/assets/953c1c20-293b-48da-8108-a7857d53015c" />
+   
+   User memasukkan ID tiket yang ingin diubah statusnya. Program mencarinya lewat Controller.cariTiket(). Jika ditemukan, user memasukkan status baru (harus salah satu dari "Dipesan", "Lunas", "Dibatalkan"), lalu status tiket diperbarui dan muncul pesan "Status tiket berhasil diubah!".
+   
+7. **Batalkan Tiket**
+   
+   <img width="237" height="98" alt="Menu 6" src="https://github.com/user-attachments/assets/574acbb4-232d-4fa7-a16a-cb72f9491d5e" />
+
+   User memasukkan ID tiket yang ingin dibatalkan. Jika ditemukan, tiket dihapus dari ArrayList<Tiket> lewat Controller.batalkanTiket(), dan kursi penerbangan yang terkait dikembalikan lewat tambahKursi() — kelihatan dari sisa kursi yang bertambah 1 dibanding sebelumnya.
+
+8. **Keluar**
+
+   <img width="375" height="98" alt="Menu 7" src="https://github.com/user-attachments/assets/71f93bd1-c19a-4bda-9e0b-c63356ac18b7" />
+
+   User memilih menu 7, program mencetak pesan penutup "Terima kasih telah menggunakan sistem ini!", perulangan menu dihentikan, dan program selesai dijalankan.
+
+Selama proses input di semua menu, program melakukan validasi untuk memastikan data yang dimasukkan sesuai ketentuan. Jika input tidak sesuai, pengguna diminta memasukkan kembali data tersebut (penjelasan lebih lengkap ada di bagian Validasi Input).
+   
 ## 3. Penjelasan Penerapan Encapsulation, Inheritance, Validasi Input, dan Dummy Data
 
 ### Struktur Class
@@ -154,36 +182,3 @@ Ada dua contoh *overloading* pada program ini: `View.tampilkanPesan(String)` ver
 
 <img width="352" height="97" alt="overloading" src="https://github.com/user-attachments/assets/82fa1143-620a-417f-bebc-3ade4c06ec02" />
 <img width="690" height="291" alt="overloading1" src="https://github.com/user-attachments/assets/3c3e2d27-df72-430e-bec2-3a412895489b" />
-
-## 5. Screenshot Output Program
-
-Berikut beberapa screenshot saat program dijalankan.
-
-#### 0. Menu Utama
-
-<img width="204" height="111" alt="Menu awal" src="https://github.com/user-attachments/assets/d15b9972-d209-4841-816a-50e3fd80ed30" />
-
-#### 1. Tambah Data Penerbangan
-
-<img width="198" height="111" alt="Menu 1" src="https://github.com/user-attachments/assets/d0580adb-f581-4dc4-a4ca-936cae3a8a52" />
-
-#### 2. Lihat Jadwal Penerbangan
-
-<img width="207" height="190" alt="Menu 2" src="https://github.com/user-attachments/assets/f243c1af-9cb8-4f47-8ed5-0753e1f8931b" />
-
-#### 3. Pesan Tiket (Ekonomi & Bisnis)
-
-<img width="350" height="207" alt="Menu 3 ekonomi" src="https://github.com/user-attachments/assets/e8ed9939-f951-45bf-b08a-cb9714586ffe" />
-<img width="358" height="206" alt="Menu 3 bisnis" src="https://github.com/user-attachments/assets/d906f957-c0d4-40b2-9b97-4640ed450e14" />
-
-#### 4. Lihat Semua Tiket
-
-<img width="960" height="540" alt="Menu 4" src="https://github.com/user-attachments/assets/47840a82-b86d-4b68-8617-f5b3c3eb1e67" />
-
-#### 5. Update Status Tiket
-
-<img width="259" height="107" alt="Menu 5 Lunas" src="https://github.com/user-attachments/assets/1de59684-426e-4f25-9584-3efce9f98570" />
-
-#### 6. Batalkan Tiket
-
-<img width="237" height="98" alt="Menu 6" src="https://github.com/user-attachments/assets/1e78e8ae-5a6a-4b05-9ad2-e65a6007d473" />
